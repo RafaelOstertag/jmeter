@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="SMTP Test" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="20 Servers" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">20</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">60</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">300</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <SmtpSampler guiclass="SmtpSamplerGui" testclass="SmtpSampler" testname="SMTP Sampler" enabled="true">
+          <stringProp name="SMTPSampler.server">${MAILSERVER}</stringProp>
+          <stringProp name="SMTPSampler.serverPort">25</stringProp>
+          <stringProp name="SMTPSampler.mailFrom">test@guengel.ch</stringProp>
+          <stringProp name="SMTPSampler.replyTo"></stringProp>
+          <stringProp name="SMTPSampler.receiverTo">rafi@guengel.ch</stringProp>
+          <stringProp name="SMTPSampler.receiverCC"></stringProp>
+          <stringProp name="SMTPSampler.receiverBCC"></stringProp>
+          <stringProp name="SMTPSampler.subject">** SMTP Test **</stringProp>
+          <stringProp name="SMTPSampler.suppressSubject">false</stringProp>
+          <stringProp name="SMTPSampler.include_timestamp">true</stringProp>
+          <stringProp name="SMTPSampler.message">This is a load test. Don&apos;t be alarmed.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+sed est a justo congue rutrum. Mauris eu porta purus, efficitur
+tincidunt diam. Aliquam ac metus ut diam fringilla condimentum. Sed
+accumsan aliquet lacus. Nulla in condimentum ligula. Morbi vel
+consectetur nisl. Vivamus ullamcorper dui quis lorem tempor
+aliquam. Ut venenatis dui ligula, nec gravida arcu hendrerit vitae. Ut
+feugiat in quam eget viverra. Maecenas maximus mauris sed arcu
+interdum cursus. Donec eget eros sed nulla dapibus pharetra sed in
+justo.
+
+Pellentesque non consequat eros, eu tristique quam. Integer fringilla
+convallis molestie. In hac habitasse platea dictumst. Praesent quis
+dui quis lacus fringilla pulvinar non id nulla. Fusce in scelerisque
+risus. Donec nisl mauris, condimentum at sem id, efficitur congue
+purus. Proin nisl augue, auctor at pellentesque vel, volutpat vel
+sapien. Aenean consequat est sed lacus lacinia rutrum. Fusce turpis
+enim, accumsan vel fringilla vel, auctor non orci. Fusce quis nisi ut
+nulla sodales pharetra sed eget neque.
+
+Fusce bibendum, dolor quis pharetra aliquam, lacus sem ultricies ex,
+sodales sodales est nisl vitae risus. Fusce porta dui nec ipsum
+aliquet rutrum. Sed congue magna in rhoncus lacinia. Vivamus gravida
+turpis lectus, blandit facilisis dui mollis a. Lorem ipsum dolor sit
+amet, consectetur adipiscing elit. Nam ultricies tellus eget magna
+rhoncus tempus. Aliquam faucibus rhoncus neque a blandit.
+
+Sed sed lectus metus. Nulla suscipit blandit diam id venenatis. Fusce
+nec nibh id leo imperdiet pharetra. Vestibulum posuere tincidunt
+ipsum, tincidunt congue ipsum mollis at. Fusce ex risus, condimentum
+ac enim vel, hendrerit imperdiet eros. Aenean mollis feugiat orci, sit
+amet bibendum neque sodales hendrerit. Aliquam ornare, augue auctor
+blandit sodales, purus purus finibus urna, dapibus aliquet lorem enim
+commodo massa. Curabitur in vehicula mauris. Suspendisse lobortis nibh
+elit, eu laoreet dui blandit accumsan. Phasellus rhoncus eget arcu ac
+vestibulum. Morbi nec est interdum arcu sollicitudin cursus. Quisque
+vel enim quis odio pellentesque tristique non at leo. Morbi ornare
+libero felis, in tempus mi efficitur in. Fusce consequat neque quis
+placerat aliquam. Quisque rutrum posuere justo id maximus.
+
+Pellentesque auctor ipsum quis dolor iaculis lacinia. Vivamus rhoncus
+vehicula ullamcorper. Suspendisse nunc magna, ultricies ut elementum
+feugiat, commodo at mauris. Vestibulum efficitur, tortor eu vehicula
+elementum, felis quam efficitur quam, et ultrices massa sem quis
+tortor. Fusce at risus sit amet nibh scelerisque ultrices. Sed
+facilisis in lectus id lacinia. Aliquam vitae sollicitudin ex. Duis
+risus enim, maximus ac molestie et, volutpat at mauris. Etiam at
+rhoncus sem, consectetur tristique nisl. Curabitur a viverra leo. In
+rutrum non dolor sit amet bibendum. Sed sed urna sit amet nulla
+finibus mattis. Integer tristique nisi non interdum laoreet.
+</stringProp>
+          <stringProp name="SMTPSampler.plainBody">false</stringProp>
+          <stringProp name="SMTPSampler.attachFile"></stringProp>
+          <stringProp name="SMTPSampler.useSSL">false</stringProp>
+          <stringProp name="SMTPSampler.useStartTLS">false</stringProp>
+          <stringProp name="SMTPSampler.trustAllCerts">false</stringProp>
+          <stringProp name="SMTPSampler.enforceStartTLS">false</stringProp>
+          <stringProp name="SMTPSampler.useLocalTrustStore">false</stringProp>
+          <stringProp name="SMTPSampler.trustStoreToUse"></stringProp>
+          <stringProp name="SMTPSampler.tlsProtocols"></stringProp>
+          <boolProp name="SMTPSampler.use_eml">false</boolProp>
+          <stringProp name="SMTPSampler.emlMessageToSend"></stringProp>
+          <stringProp name="SMTPSampler.useAuth">false</stringProp>
+          <stringProp name="SMTPSampler.password"></stringProp>
+          <stringProp name="SMTPSampler.username"></stringProp>
+          <stringProp name="SMTPSampler.messageSizeStatistics">false</stringProp>
+          <stringProp name="SMTPSampler.enableDebug">false</stringProp>
+          <collectionProp name="SMTPSampler.headerFields"/>
+        </SmtpSampler>
+        <hashTree/>
+        <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+          <stringProp name="ConstantTimer.delay">0</stringProp>
+          <stringProp name="RandomTimer.range">300.0</stringProp>
+        </UniformRandomTimer>
+        <hashTree/>
+      </hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="MAILSERVER" elementType="Argument">
+            <stringProp name="Argument.name">MAILSERVER</stringProp>
+            <stringProp name="Argument.value">172.26.7.203</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
